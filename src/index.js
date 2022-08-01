@@ -3,12 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux'
+import {combineReducers, createStore} from "redux";
+
+const reducer = (state=0,action)=>{
+    if(action.type==='INCREMENT'){
+        console.log(state)
+        return state +1
+    }else if(action.type==="DECREMENT"){
+        return state -1
+    }
+    return state
+}
+const allReducers=combineReducers({
+    counter:reducer
+})
+const store=createStore(allReducers);
+
+store.dispatch({
+    type:'INCREMENT'
+});
+
+store.dispatch({
+    type:'DECREMENT'
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

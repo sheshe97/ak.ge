@@ -18,6 +18,8 @@ const reducer = (state=0,action)=>{
 const allReducers=combineReducers({
     counter:reducer
 })
+
+
 const store=createStore(allReducers);
 
 store.dispatch({

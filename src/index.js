@@ -8,12 +8,12 @@ import {combineReducers, createStore} from "redux";
 
 const reducer = (state=0,action)=>{
     if(action.type==='INCREMENT'){
-        console.log(state)
-        return state +1
+        console.log(state);
+        return state +1;
     }else if(action.type==="DECREMENT"){
-        return state -1
+        return state -1;
     }
-    return state
+    return state;
 }
 const allReducers=combineReducers({
     counter:reducer
